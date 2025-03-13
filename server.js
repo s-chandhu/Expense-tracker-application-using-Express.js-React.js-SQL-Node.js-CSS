@@ -9,7 +9,7 @@ const db = new sqlite3.Database('./expenses.db');
 app.use(cors());
 app.use(express.json());
 
-app.get('/expenses', (req, res) => {
+app.get('/', (req, res) => {
     db.all('SELECT * FROM expenses', [], (err, rows) => {
       if (err) return res.status(500).json({ error: err.message });
       res.json(rows);
